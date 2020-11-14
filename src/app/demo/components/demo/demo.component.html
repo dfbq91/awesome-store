@@ -1,0 +1,7 @@
+<button (click)="addItem()">Add Item</button>
+<ul>
+  <li *ngFor="let name of names; index as i">
+    {{ name }} {{ i }}
+    <button (click)="deleteItem(i)">Delete item</button>
+  </li>
+</ul>
