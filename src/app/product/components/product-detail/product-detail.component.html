@@ -1,11 +1,17 @@
-<div>
-    <img [src]="product.image" [alt]="product.description">
-</div>
-<div>
+<div *ngIf='product'>
+  <div>
+    <img [src]="product.image" [alt]="product.description" />
+  </div>
+  <div>
     <ul>
-        <li>Nombre: {{ product.title }}</li>
-        <li>Precio: {{ product.price | currency }}</li>
-        <li></li>
-        <li></li>
+      <li>Nombre: {{ product.title }}</li>
+      <li>Precio: {{ product.price | currency }}</li>
+      <li></li>
+      <li></li>
     </ul>
+  </div>
+  <button (click)='createProduct()'></button>
+  <button (click)='updateProduct()'></button>
+  <button (click)='deleteProduct()'></button>
+  <a href="">Hola Mundo</a>
 </div>

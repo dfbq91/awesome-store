@@ -1,69 +1,66 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/product.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  products: Product[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '2',
-      image: 'assets/images/pantaloneta.png',
-      title: 'Pantaloneta',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '7',
-      image: 'assets/images/saco.png',
-      title: 'Saco',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-  ];
+  constructor(private httpClient: HttpClient) {}
 
-  constructor() {}
-
-  getAllProducts(): Product[] {
-    return this.products;
+  /**
+   * List all products
+   * @returns an array of Products.
+   */
+  getAllProducts() {
+    return this.httpClient.get<Product[]>(`${environment.url_api}/products`);
   }
 
+  /**
+   * Get an specific product
+   * @id id of the product to be found
+   * @returns product of type Product
+   */
   getProduct(id: string) {
-    return this.products.find((item) => id === item.id);
+    return this.httpClient.get<Product>(
+      `${environment.url_api}/products/${id}`
+    );
+  }
+
+  /**
+   * Create a product
+   * @param product product to be created
+   * @returns an observable
+   */
+  createProduct(product: Product) {
+    return this.httpClient.post<Product>(
+      `${environment.url_api}/products/`,
+      product
+    );
+  }
+
+  /**
+   * Update a product
+   * @param product product to be updated
+   * @param changes Attributtes of the product to be changed
+   * @returns an observable
+   */
+  updateProduct(id: string, changes: Partial<Product>) {
+    return this.httpClient.put<Product>(
+      `${environment.url_api}/products/${id}`,
+      changes
+    );
+  }
+
+  /**
+   * Delete a product
+   * @param product product to be deleted
+   * @returns an observable
+   */
+  deleteProduct(id: string) {
+    return this.httpClient.delete<Product>(
+      `${environment.url_api}/products/${id}`
+    );
   }
 }
