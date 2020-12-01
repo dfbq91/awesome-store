@@ -11,6 +11,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TableComponent } from './components/table/table.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { TableComponent } from './components/table/table.component';
     ProductFormComponent,
     NavComponent,
     ProductsListComponent,
+    FormProductComponent,
   ],
   imports: [
     CommonModule,
