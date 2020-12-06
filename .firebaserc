@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "awesome-store-461be": {
+      "hosting": {
+        "awesome-store": [
+          "awesome-store-461be"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "awesome-store-461be"
+  }
+}

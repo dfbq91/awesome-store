@@ -7,14 +7,6 @@
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
-            <input placeholder="ID" formControlName="id" matInput type="text" />
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs">
-          <mat-form-field>
             <input
               placeholder="Title"
               formControlName="title"
@@ -57,17 +49,10 @@
           </mat-form-field>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-xs">
-          <img *ngIf="(image$ | async) as image" [src]="image" alt="" />
-          <input type="file" (change)="uploadFile($event)" />
-        </div>
-      </div>
     </mat-card-content>
     <mat-card-actions>
       <button [disabled]="form.invalid" mat-raised-button type="submit">
-        Crear
+        Guardar
       </button>
     </mat-card-actions>
   </mat-card>

@@ -12,6 +12,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TableComponent } from './components/table/table.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FormProductComponent } from './components/form-product/form-product.com
     NavComponent,
     ProductsListComponent,
     FormProductComponent,
+    ProductEditComponent,
   ],
   imports: [
     CommonModule,

@@ -27,19 +27,28 @@ const routes: Routes = [
           import('./contact/contact.module').then(
             (module) => module.ContactModule
           ),
-        canActivate: [AdminGuard],
       },
       {
         path: 'demo',
         loadChildren: () =>
           import('./demo/demo.module').then((m) => m.DemoModule),
       },
+      {
+        path: 'order',
+        loadChildren: () =>
+        import('./order/order.module').then((m) => m.OrderModule),
+      }
     ],
   },
   {
     path: 'admin',
+    canActivate: [AdminGuard],
     loadChildren: () =>
       import('./admin/admin.module').then((module) => module.AdminModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '**',
